@@ -4,92 +4,88 @@
  */
 package midterm;
 
-/**
- *
- * @author admin
- */
+
 public class StackLinkidList {
 
-    // Node class
-    private class Node {
-
+    
+   private class Node {
         int data;
         Node next;
-
-        // Constructor
+       
         Node(int data) {
             this.data = data;
             this.next = null;
         }
     }
-
-    // Top of the stack
+   
     private Node top;
-
-    // Constructor
-    public StackLinkedList() {
+   
+    public StackLinkidList() {
         top = null;
     }
-
-    // Main method
+   
     public static void main(String[] args) {
-
-        // Create a stack
-        StackLinkedList stack = new StackLinkedList();
-
-        // Push elements
+       
+        StackLinkidList stack = new StackLinkidList();
         stack.push(10);
         stack.push(20);
         stack.push(30);
         stack.push(40);
-
+       
         System.out.println();
-
-        // Display stack
+       
         stack.display();
-
-        // View top element
+       
         System.out.println("Top element: " + stack.peek());
-
-        // Remove an element
+       
         System.out.println("Removed: " + stack.pop());
-
-        // View top again
+       
         System.out.println("Top element: " + stack.peek());
-
-        // Display stack again
+       
         stack.display();
-        // Add an element to the stack
-public void push(int value) {
-
-    // Create a new node
-    Node newNode = new Node(value);
-
-    // Connect the new node to the current top
-    newNode.next = top;
-
-    // Make the new node the new top
-    top = newNode;
-
-    System.out.println(value + " pushed into the stack.");
-}
-// Remove an element from the stack
-public int pop() {
-
-    if (isEmpty()) {
-        System.out.println("Stack Underflow! Stack is empty.");
-        return -1;
     }
-
-    // Store the value of the top node
-    int value = top.data;
-
-    // Move top to the next node
-    top = top.next;
-
-    return value;
-}
-
+   
+    public void push(int value) {
+        Node newNode = new Node(value);
+        newNode.next = top;
+        top = newNode;
+        System.out.println(value + " pushed into the stack.");
+    }
+   
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack Underflow! Stack is empty.");
+            return -1;
+        }
+        int value = top.data;
+        top = top.next;
+        return value;
+    }
+   
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty.");
+            return -1;
+           
+            //git
+        }
+        return top.data;
+    }
+   
+    public boolean isEmpty() {
+        return top == null;
+    }
+   
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty.");
+            return;
+        }
+        Node current = top;
+        System.out.println("Stack elements:");
+        while (current != null) {
+            System.out.println(current.data);
+            current = current.next;
+        }
     }
 }
-
