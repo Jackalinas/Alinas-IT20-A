@@ -53,6 +53,28 @@ public class SortingAlgorithmsJava {
 
     public static void main(String[] args) {
 
-      
+        int[] original = {
+            45, 12, 89, 3, 67, 21, 10, 54, 32, 7
+        };
+
+       
+        int[] bubble = Arrays.copyOf(original, original.length);
+        int[] selection = Arrays.copyOf(original, original.length);
+        int[] insertion = Arrays.copyOf(original, original.length);
+
+        System.out.println("ORIGINAL ARRAY:");
+        System.out.println(Arrays.toString(original));
+
+        bubbleSort(bubble);
+        System.out.println("BUBBLE SORT:");
+        System.out.println(Arrays.toString(bubble));
+
+        selectionSort(selection);
+        System.out.println("SELECTION SORT:");
+        System.out.println(Arrays.toString(selection));
+
+        insertionSort(insertion);
+        System.out.println("INSERTION SORT:");
+        System.out.println(Arrays.toString(insertion));
     }
 }
